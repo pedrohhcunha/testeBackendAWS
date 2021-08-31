@@ -7,7 +7,7 @@ const cors = require("cors");
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: [process.env.CORS_ORIGIN],
+    origin: [process.env.CORS_ORIGIN || null],
     methods: ['GET', 'POST'],
     credentials: true
 }));
@@ -23,7 +23,7 @@ app.get(
     }
 );
 
-app.listen(process.env.PORT, () => {
-    console.log("Servidor escutando na porta 3030...")
+app.listen(process.env.PORT || 3131, () => {
+    console.log("Servidor escutando na porta 3131...")
 });
 
